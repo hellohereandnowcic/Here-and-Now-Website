@@ -1,0 +1,39 @@
+{
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "Team",
+      "meta": "Here & Now Productions",
+      "image": "https://images.unsplash.com/photo-1552312097-8ef75595e2a2?auto=format&fit=crop&w=1800&q=75",
+      "dark": true
+    },
+    {
+      "type": "text_image",
+      "heading": "Joseph Winters",
+      "body": "Joseph is a director and producer of theatre and arts based in London, and founder of The Shipwright. He was Resident Director at the Almeida Theatre (2018–2019) and Staff Director of English Touring Opera, and in 2023 became Artistic Director of Peckham Levels.\n\nHe has worked alongside Michael Longhurst, Natalie Abrahami, Rupert Goold and Robert Icke, and has taught at Oxford, Central Saint Martins, Goldsmiths and Rose Bruford College.",
+      "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=900&q=75",
+      "position": "right",
+      "background": "paper"
+    },
+    {
+      "type": "text_image",
+      "heading": "Emma Halstead",
+      "body": "Emma is a producer who has worked across theatre, dance and film in the UK and internationally, including with the Donmar Warehouse, the Barbican, Sadler's Wells, the London Palladium, Birmingham Rep and St Ann's Warehouse in New York.\n\nA Stage One London Producer graduate, she joined as Executive Director of The Shipwright, building the formal structure behind the company's work.",
+      "image": "https://images.unsplash.com/photo-1552312097-8ef75595e2a2?auto=format&fit=crop&w=900&q=75",
+      "position": "left",
+      "background": "white"
+    },
+    {
+      "type": "text",
+      "heading": "The Ensemble",
+      "body": "Here & Now works with a rotating company of performers, musicians and creatives across The Bulletin, V is for Victims, and beyond. Full ensemble bios are being written and will land here as each show's casting is confirmed.\n\nIf you're part of the company and want your bio added, get in touch at info@hereandnowproductions.co.uk.",
+      "width": "narrow",
+      "background": "paper"
+    },
+    {
+      "type": "newsletter",
+      "heading": "Stay in the loop",
+      "background": "accent"
+    }
+  ]
+}

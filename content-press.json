@@ -1,0 +1,37 @@
+{
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "Press",
+      "meta": "Here & Now Productions",
+      "image": "https://images.unsplash.com/photo-1544733422-251e532ca221?auto=format&fit=crop&w=1800&q=75",
+      "dark": true
+    },
+    {
+      "type": "text",
+      "heading": "About Here & Now",
+      "body": "Here & Now Productions is a London theatre company run by Joseph Winters and Emma Halstead, making theatre and performance where the relationship between actor and audience is the most important thing — often in spaces that weren't built to be theatres at all. Current work includes The Bulletin, a monthly scratch night at The Old Red Lion, Islington, and V is for Victims, a new musical comedy for 2027.",
+      "width": "narrow",
+      "background": "paper"
+    },
+    {
+      "type": "text",
+      "heading": "Coverage",
+      "body": "Press coverage will be gathered here as it comes in — nothing published yet to link to.",
+      "width": "narrow",
+      "background": "white"
+    },
+    {
+      "type": "text",
+      "heading": "Press enquiries",
+      "body": "For interviews, images or further information, contact info@hereandnowproductions.co.uk.",
+      "width": "narrow",
+      "background": "paper"
+    },
+    {
+      "type": "newsletter",
+      "heading": "Stay in the loop",
+      "background": "accent"
+    }
+  ]
+}

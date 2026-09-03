@@ -1,0 +1,23 @@
+{
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "News",
+      "meta": "Here & Now Productions",
+      "image": "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&w=1800&q=75",
+      "dark": true
+    },
+    {
+      "type": "news_list",
+      "items": [
+        { "date": "September 2026", "headline": "The Bulletin announced — monthly scratch night at The Old Red Lion, Islington", "body": "Our new monthly work-in-progress night launches this year: music, cabaret, sketches and plays from the Here & Now ensemble, with a different guest host each month. Join the mailing list to hear the first date." },
+        { "date": "September 2026", "headline": "V is for Victims: a new musical comedy, coming 2027", "body": "A murder mystery in the tradition of Agatha Christie, with the comic misdirection of Rian Johnson's Knives Out films — and a score of brand new original songs. Writing and songwriting are underway now." }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "heading": "Stay in the loop",
+      "background": "accent"
+    }
+  ]
+}

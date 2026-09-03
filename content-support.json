@@ -1,0 +1,32 @@
+{
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "Support Us",
+      "meta": "Here & Now Productions",
+      "image": "https://images.unsplash.com/photo-1583591900414-7031eb309cb6?auto=format&fit=crop&w=1800&q=75",
+      "dark": true
+    },
+    {
+      "type": "text",
+      "heading": "Why it matters",
+      "body": "Here & Now Productions is a Community Interest Company — not-for-profit, by design. Everything we make goes back into the work: new writing, a room for the Here & Now ensemble to try things in public, and shows like The Bulletin and V is for Victims that don't yet have a box office big enough to pay for themselves.\n\nSupport from people who believe in that is what lets us keep making work on our own terms, rather than whichever terms happen to be fundable that year.",
+      "width": "narrow",
+      "background": "paper"
+    },
+    {
+      "type": "text_image",
+      "heading": "How to support us",
+      "body": "We're setting up a proper way to give directly — donation platform / mechanism TBC. In the meantime, the most useful thing you can do is come to a show, join the mailing list, and tell someone else about us.",
+      "position": "right",
+      "background": "white",
+      "link_text": "Join the list",
+      "link_url": "#newsletterblock"
+    },
+    {
+      "type": "newsletter",
+      "heading": "Stay in the loop",
+      "background": "accent"
+    }
+  ]
+}

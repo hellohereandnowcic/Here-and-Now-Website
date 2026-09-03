@@ -1,0 +1,40 @@
+{
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "About",
+      "meta": "Here & Now Productions",
+      "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=1800&q=75",
+      "dark": true
+    },
+    {
+      "type": "text",
+      "heading": "What we do",
+      "body": "We make theatre for the here and now, which for us means theatre and performance where the relationship between the actor and the audience is the most important thing. The space doesn't need to be a conventional one — in fact, we've transformed a lot of spaces that weren't meant to be theatres into performance arenas. We think this results in an even more live and electric experience for everyone in the room.\n\nHere & Now Productions is a Community Interest Company — not-for-profit, reinvesting everything we make back into the work and the people who make it. Find out how to support us on the Support page.",
+      "width": "narrow",
+      "background": "paper"
+    },
+    {
+      "type": "text_image",
+      "heading": "Joseph Winters",
+      "body": "Joseph is a director and producer of theatre and arts based in London, and founder of The Shipwright. He was Resident Director at the Almeida Theatre (2018–2019) and Staff Director of English Touring Opera, and in 2023 became Artistic Director of Peckham Levels.\n\nHe has worked alongside Michael Longhurst, Natalie Abrahami, Rupert Goold and Robert Icke, and has taught at Oxford, Central Saint Martins, Goldsmiths and Rose Bruford College.",
+      "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=900&q=75",
+      "position": "right",
+      "background": "paper"
+    },
+    {
+      "type": "text_image",
+      "heading": "Emma Halstead",
+      "body": "Emma is a producer who has worked across theatre, dance and film in the UK and internationally, including with the Donmar Warehouse, the Barbican, Sadler's Wells, the London Palladium, Birmingham Rep and St Ann's Warehouse in New York.\n\nA Stage One London Producer graduate, she joined as Executive Director of The Shipwright, building the formal structure behind the company's work.",
+      "image": "https://images.unsplash.com/photo-1552312097-8ef75595e2a2?auto=format&fit=crop&w=900&q=75",
+      "position": "left",
+      "background": "white"
+    },
+    {
+      "type": "newsletter",
+      "heading": "Stay in the loop",
+      "subtext": "Updates on upcoming productions and news from Here & Now.",
+      "background": "accent"
+    }
+  ]
+}

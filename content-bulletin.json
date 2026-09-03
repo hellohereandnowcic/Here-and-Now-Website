@@ -1,0 +1,63 @@
+{
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "The Bulletin",
+      "meta": "Monthly scratch night — The Old Red Lion, Islington",
+      "image": "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&w=1800&q=75",
+      "dark": true
+    },
+    {
+      "type": "text_image",
+      "heading": "What it is",
+      "body": "The Bulletin is a monthly work-in-progress night from the Here & Now ensemble — a scratch night built fresh for the room every time: music, cabaret, sketches and short plays, with a house band keeping the whole thing moving.\n\nEvery month brings a different guest host, in the Saturday Night Live tradition, steering the night alongside the company. The first hour is fast, satirical and topical — whatever's actually happened that week, turned into material within days. The second half hands the stage to one member of the ensemble, sharing a work in progress of their own.",
+      "image": "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&w=900&q=75",
+      "position": "right",
+      "background": "bulletin"
+    },
+    {
+      "type": "statement",
+      "heading": "From the company",
+      "quote": "We started The Bulletin because the news moves faster than theatre usually does, and we wanted a room where that speed was the point — somewhere an idea from Monday could be a song by Friday.",
+      "attribution": "Joseph Winters & Emma Halstead",
+      "background": "bulletin-a"
+    },
+    {
+      "type": "text_image",
+      "heading": "Venue & tickets",
+      "body": "The Bulletin runs monthly at The Old Red Lion, Islington — a pub theatre with exactly the kind of room this needs: small enough that the crowd and the stage feel like the same thing.\n\nTickets are through TicketTailor. Booking embed / link TBC — a fuller box office on its own subdomain may follow.",
+      "image": "https://images.unsplash.com/photo-1541512416146-3cf58d6b27cc?auto=format&fit=crop&w=900&q=75",
+      "position": "left",
+      "background": null,
+      "link_text": "Book on TicketTailor",
+      "link_url": "#"
+    },
+    {
+      "type": "credits",
+      "heading": "Who's involved",
+      "items": [
+        { "role": "Guest Host", "name": "A different guest star each month — TBC", "color": "bulletin-b" },
+        { "role": "Performer", "name": "Casting TBC", "color": "bulletin" },
+        { "role": "Performer", "name": "Casting TBC", "color": "bulletin-b" },
+        { "role": "Musical Director", "name": "TBC", "color": "bulletin" },
+        { "role": "Director", "name": "Joseph Winters", "color": "bulletin-b" },
+        { "role": "Producer", "name": "Emma Halstead", "color": "bulletin" }
+      ]
+    },
+    {
+      "type": "faq",
+      "heading": "Good to know",
+      "items": [
+        { "question": "How often does it run?", "answer": "Monthly, at The Old Red Lion in Islington. It's built to be a habit, not a one-off — exact dates confirmed here and by email." },
+        { "question": "What actually happens on the night?", "answer": "Two halves. The first hour is fast and topical — sketches, songs and stand-up responding to whatever's happened that week, hosted by a different guest star each month. The second half is a work-in-progress sharing from one member of the Here & Now ensemble." },
+        { "question": "Can I perform or pitch material?", "answer": "We'll open this up as the monthly run beds in — join the mailing list to hear when submissions open." },
+        { "question": "Is it suitable for everyone?", "answer": "It's a late-night scratch night aimed at adults — expect sharp humour and topical material. Age guidance will be confirmed nearer the first date." }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "heading": "Be the first to know",
+      "background": "bulletin-a"
+    }
+  ]
+}

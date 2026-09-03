@@ -1,0 +1,49 @@
+{
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "Archive",
+      "meta": "The Shipwright · 2020–2026",
+      "image": "https://images.unsplash.com/photo-1583591900414-7031eb309cb6?auto=format&fit=crop&w=1800&q=75",
+      "dark": true
+    },
+    {
+      "type": "text_image",
+      "heading": "Our story",
+      "body": "In 2020 we took up residence in the Master Shipwright's House, a 500-year-old building on the Thames in Deptford, and founded The Shipwright — a theatre and music venue where the company lived, ate, and made work together, two seasons a year: an outdoor summer spectacular and an intimate indoor winter festival.\n\nOver six years it became a headline venue for Lewisham's year as the Mayor of London's Borough of Culture, and made work the Guardian called \"exquisite, ambitious and inquisitive.\"",
+      "image": "https://images.unsplash.com/photo-1583591900414-7031eb309cb6?auto=format&fit=crop&w=900&q=75",
+      "position": "right",
+      "background": "archive",
+      "link_text": "Read more",
+      "link_url": "#"
+    },
+    {
+      "type": "statement",
+      "heading": "What's next",
+      "quote": "As the house moves into new ownership, that chapter is ending. We're starting a new one — with The Bulletin and V is for Victims, and more to be announced. Sign up below to stay in the loop.",
+      "attribution": "Joseph Winters & Emma Halstead",
+      "background": "archive-a"
+    },
+    {
+      "type": "gallery",
+      "heading": "Looking back",
+      "items": [
+        { "image": "https://images.unsplash.com/photo-1541512416146-3cf58d6b27cc?auto=format&fit=crop&w=700&q=75", "caption": "Dido and Aeneas, 2020 — The Shipwright's opening production, staged in a 200-seat garden auditorium built in a single October." },
+        { "image": "https://images.unsplash.com/photo-1629194891750-cd24c0b9596f?auto=format&fit=crop&w=700&q=75", "caption": "Paradise Lost, 2022 — a new opera by Bertie Baigent, premiered at The Shipwright." },
+        { "image": "https://images.unsplash.com/photo-1544733422-251e532ca221?auto=format&fit=crop&w=700&q=75", "caption": "The Gretchen Question, 2022 — Melly Still and Max Barton's headline commission for We Are Lewisham." }
+      ]
+    },
+    {
+      "type": "text",
+      "heading": "The Shipwright Ensemble",
+      "body": "Six years, six companies of actors, musicians, designers and crew — The Shipwright was built on people who came back summer after summer as much as any single production. A full year-by-year credit list is being pulled together from the archive and will land here shortly.\n\nIf you were part of the Ensemble at any point between 2020 and 2026 and don't see your name here yet, get in touch at info@hereandnowproductions.co.uk — we want this page to be accurate before it's public.",
+      "width": "narrow",
+      "background": "paper"
+    },
+    {
+      "type": "newsletter",
+      "heading": "Stay in the loop",
+      "background": "archive"
+    }
+  ]
+}

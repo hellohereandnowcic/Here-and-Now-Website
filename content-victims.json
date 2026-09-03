@@ -1,0 +1,63 @@
+{
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "V is for Victims",
+      "meta": "New musical comedy — 2027",
+      "image": "https://images.unsplash.com/photo-1544733422-251e532ca221?auto=format&fit=crop&w=1800&q=75",
+      "dark": true
+    },
+    {
+      "type": "text_image",
+      "heading": "What it is",
+      "body": "V is for Victims is a brand new musical comedy — a murder mystery in the tradition of Agatha Christie, twisted through the modern comic misdirection of Rian Johnson's Knives Out films, with a score of original songs nobody's heard before.\n\nIt builds on the company's history of pantomimes without being one — the same appetite for a room having a good time together, aimed at a proper theatrical whodunit rather than panto conventions.",
+      "image": "https://images.unsplash.com/photo-1544733422-251e532ca221?auto=format&fit=crop&w=900&q=75",
+      "position": "right",
+      "background": "victims"
+    },
+    {
+      "type": "statement",
+      "heading": "From the company",
+      "quote": "We wanted to write the show we'd want to watch: a real whodunit, played completely straight until it isn't, with songs nobody's heard before. Christie gave us the shape; Rian Johnson gave us permission to have this much fun with it.",
+      "attribution": "Joseph Winters & Emma Halstead",
+      "background": "victims-a"
+    },
+    {
+      "type": "text_image",
+      "heading": "Venue & tickets",
+      "body": "V is for Victims is coming in 2027 — scripting and songwriting are underway before anything is scheduled to be seen.\n\nJoin the mailing list to hear about workshop showings, casting, and eventually dates and venue, as soon as any of it is confirmed.",
+      "image": "https://images.unsplash.com/photo-1629194891750-cd24c0b9596f?auto=format&fit=crop&w=900&q=75",
+      "position": "left",
+      "background": null,
+      "link_text": "Join the list",
+      "link_url": "#newsletterblock"
+    },
+    {
+      "type": "credits",
+      "heading": "Who's involved",
+      "items": [
+        { "role": "Book & Lyrics", "name": "TBC", "color": "victims-b" },
+        { "role": "Composer", "name": "TBC", "color": "victims-a" },
+        { "role": "Performer", "name": "Casting TBC", "color": "victims-a" },
+        { "role": "Performer", "name": "Casting TBC", "color": "victims-b" },
+        { "role": "Director", "name": "Joseph Winters", "color": "victims-a" },
+        { "role": "Producer", "name": "Emma Halstead", "color": "victims-b" }
+      ]
+    },
+    {
+      "type": "faq",
+      "heading": "Good to know",
+      "items": [
+        { "question": "Is this a pantomime?", "answer": "No — it builds on our history of pantomimes, but V is for Victims is a full musical comedy in its own right, not a panto." },
+        { "question": "What's the story?", "answer": "A murder mystery in the tradition of Agatha Christie, with the comic misdirection of Rian Johnson's Knives Out films — brand new songs throughout." },
+        { "question": "When will it be staged?", "answer": "2027. We're still writing and workshopping — join the mailing list to hear about casting, dates and venue as soon as any of it is confirmed." },
+        { "question": "Will there be a workshop showing?", "answer": "Likely, before a full run — details TBC. This is usually how we test new work before committing to a venue." }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "heading": "Be the first to know",
+      "background": "victims"
+    }
+  ]
+}

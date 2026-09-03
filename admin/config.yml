@@ -1,0 +1,323 @@
+# ============================================================================
+# DECAP CMS CONFIG — Here & Now Productions
+# ============================================================================
+#
+# The "backend:" block below is your real, live DecapBridge connection —
+# copied over from the site's existing GitHub repo so this new file plugs
+# into the same DecapBridge project without needing to be set up again.
+#
+# ----------------------------------------------------------------------------
+# HOW THIS FILE WORKS — BLOCKS
+# ----------------------------------------------------------------------------
+# Most pages below (The Bulletin, V is for Victims, Archive, About, Team,
+# Press, Support, News) are built from a single "Blocks" field. In the CMS
+# editor, that shows up as a list with an "+ Add" button and a picker of
+# block types — Hero, Text + Image, Statement, Text, Gallery, Credits, FAQ,
+# News List, Newsletter. Adding, removing, or reordering blocks there adds,
+# removes, or reorders whole sections of the live page — no code change.
+# Each block type's own fields are documented next to it below.
+# The homepage's three-tile grid and the site-wide footer/contact details
+# are separate, fixed sections further down, since those aren't repeatable
+# in the same way.
+# ============================================================================
+
+# Use DecapBridge classic auth (required)
+backend:
+  name: git-gateway
+  repo: hellohereandnowcic/Here-and-Now-Website
+  branch: main
+  identity_url: https://auth.decapbridge.com/sites/7c4756a8-937c-41f6-8355-d67cb99363e9
+  gateway_url: https://gateway.decapbridge.com
+
+  # See who did what (optional)
+  commit_messages:
+    create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    delete: Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    uploadMedia: Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
+
+# Better Decap + Bridge logo (optional)
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+
+# Add site links in Decap CMS (optional)
+site_url: https://hereandnow.org.uk
+
+media_folder: ""
+public_folder: "/"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+
+      # ---------------------------------------------------------------
+      # THE BULLETIN
+      # ---------------------------------------------------------------
+      - name: "bulletin"
+        label: "The Bulletin"
+        file: "content-bulletin.json"
+        fields:
+          - label: "Blocks"
+            name: "blocks"
+            widget: "list"
+            summary: "{{fields.type}} — {{fields.heading}}{{fields.title}}"
+            types:
+              - label: "Hero (top banner)"
+                name: "hero"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Subtitle line", name: "meta", widget: "string", required: false }
+                  - { label: "Background photo", name: "image", widget: "image", required: false }
+                  - { label: "Darken photo for white text", name: "dark", widget: "boolean", default: true }
+              - label: "Text + Image"
+                name: "text_image"
+                widget: "object"
+                fields:
+                  - { label: "Heading", name: "heading", widget: "string", required: false }
+                  - { label: "Body text (leave a blank line between paragraphs)", name: "body", widget: "text" }
+                  - { label: "Photo", name: "image", widget: "image", required: false }
+                  - { label: "Photo side", name: "position", widget: "select", options: ["left", "right"], default: "right" }
+                  - { label: "Background colour", name: "background", widget: "select", required: false, options: ["", "paper", "white", "bulletin", "bulletin-a", "bulletin-b", "victims", "victims-a", "victims-b", "archive", "archive-a", "archive-b", "accent"] }
+                  - { label: "Link text (optional, e.g. \"Book tickets\")", name: "link_text", widget: "string", required: false }
+                  - { label: "Link URL", name: "link_url", widget: "string", required: false }
+              - label: "Statement (centred pull-quote)"
+                name: "statement"
+                widget: "object"
+                fields:
+                  - { label: "Heading", name: "heading", widget: "string", required: false }
+                  - { label: "Quote", name: "quote", widget: "text" }
+                  - { label: "Attribution (e.g. a name)", name: "attribution", widget: "string", required: false }
+                  - { label: "Background colour", name: "background", widget: "select", options: ["paper", "bulletin", "bulletin-a", "bulletin-b", "victims", "victims-a", "victims-b", "archive", "archive-a", "archive-b", "accent"] }
+              - label: "Text (no image)"
+                name: "text"
+                widget: "object"
+                fields:
+                  - { label: "Heading", name: "heading", widget: "string", required: false }
+                  - { label: "Body text (leave a blank line between paragraphs)", name: "body", widget: "text" }
+                  - { label: "Width", name: "width", widget: "select", options: ["narrow", "wide"], default: "narrow" }
+                  - { label: "Background colour", name: "background", widget: "select", required: false, options: ["", "paper", "white"] }
+              - label: "Gallery"
+                name: "gallery"
+                widget: "object"
+                fields:
+                  - { label: "Heading", name: "heading", widget: "string", required: false }
+                  - label: "Photos"
+                    name: "items"
+                    widget: "list"
+                    summary: "{{caption}}"
+                    fields:
+                      - { label: "Photo", name: "image", widget: "image" }
+                      - { label: "Caption", name: "caption", widget: "string", required: false }
+              - label: "Credits (who's involved)"
+                name: "credits"
+                widget: "object"
+                fields:
+                  - { label: "Heading", name: "heading", widget: "string", default: "Who's involved" }
+                  - label: "People"
+                    name: "items"
+                    widget: "list"
+                    summary: "{{role}} — {{name}}"
+                    fields:
+                      - { label: "Role", name: "role", widget: "string" }
+                      - { label: "Name (or \"Casting TBC\")", name: "name", widget: "string" }
+                      - { label: "Swatch colour", name: "color", widget: "select", required: false, options: ["bulletin", "bulletin-a", "bulletin-b", "victims", "victims-a", "victims-b", "archive", "archive-a", "archive-b"] }
+              - label: "FAQ"
+                name: "faq"
+                widget: "object"
+                fields:
+                  - { label: "Heading", name: "heading", widget: "string", default: "Good to know" }
+                  - label: "Questions"
+                    name: "items"
+                    widget: "list"
+                    summary: "{{question}}"
+                    fields:
+                      - { label: "Question", name: "question", widget: "string" }
+                      - { label: "Answer", name: "answer", widget: "text" }
+              - label: "News List"
+                name: "news_list"
+                widget: "object"
+                fields:
+                  - label: "Entries"
+                    name: "items"
+                    widget: "list"
+                    summary: "{{headline}}"
+                    fields:
+                      - { label: "Date", name: "date", widget: "string", required: false }
+                      - { label: "Headline", name: "headline", widget: "string" }
+                      - { label: "Body", name: "body", widget: "text" }
+              - label: "Newsletter sign-up"
+                name: "newsletter"
+                widget: "object"
+                fields:
+                  - { label: "Heading", name: "heading", widget: "string", default: "Stay in the loop" }
+                  - { label: "Small print under the heading", name: "subtext", widget: "string", required: false }
+                  - { label: "Background colour", name: "background", widget: "select", options: ["accent", "bulletin", "bulletin-a", "victims", "victims-a", "archive", "archive-a"] }
+
+      # ---------------------------------------------------------------
+      # V IS FOR VICTIMS — same block palette as The Bulletin
+      # ---------------------------------------------------------------
+      - name: "victims"
+        label: "V is for Victims"
+        file: "content-victims.json"
+        fields:
+          - label: "Blocks"
+            name: "blocks"
+            widget: "list"
+            summary: "{{fields.type}} — {{fields.heading}}{{fields.title}}"
+            types:
+              - { label: "Hero (top banner)", name: "hero", widget: "object", fields: [{label: "Title", name: "title", widget: "string"}, {label: "Subtitle line", name: "meta", widget: "string", required: false}, {label: "Background photo", name: "image", widget: "image", required: false}, {label: "Darken photo for white text", name: "dark", widget: "boolean", default: true}] }
+              - { label: "Text + Image", name: "text_image", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Body text", name: "body", widget: "text"}, {label: "Photo", name: "image", widget: "image", required: false}, {label: "Photo side", name: "position", widget: "select", options: ["left", "right"], default: "right"}, {label: "Background colour", name: "background", widget: "select", required: false, options: ["", "paper", "white", "bulletin", "bulletin-a", "bulletin-b", "victims", "victims-a", "victims-b", "archive", "archive-a", "archive-b", "accent"]}, {label: "Link text", name: "link_text", widget: "string", required: false}, {label: "Link URL", name: "link_url", widget: "string", required: false}] }
+              - { label: "Statement", name: "statement", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Quote", name: "quote", widget: "text"}, {label: "Attribution", name: "attribution", widget: "string", required: false}, {label: "Background colour", name: "background", widget: "select", options: ["paper", "bulletin", "bulletin-a", "bulletin-b", "victims", "victims-a", "victims-b", "archive", "archive-a", "archive-b", "accent"]}] }
+              - { label: "Text (no image)", name: "text", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Body text", name: "body", widget: "text"}, {label: "Width", name: "width", widget: "select", options: ["narrow", "wide"], default: "narrow"}, {label: "Background colour", name: "background", widget: "select", required: false, options: ["", "paper", "white"]}] }
+              - { label: "Gallery", name: "gallery", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Photos", name: "items", widget: "list", summary: "{{caption}}", fields: [{label: "Photo", name: "image", widget: "image"}, {label: "Caption", name: "caption", widget: "string", required: false}]}] }
+              - { label: "Credits (who's involved)", name: "credits", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", default: "Who's involved"}, {label: "People", name: "items", widget: "list", summary: "{{role}} — {{name}}", fields: [{label: "Role", name: "role", widget: "string"}, {label: "Name", name: "name", widget: "string"}, {label: "Swatch colour", name: "color", widget: "select", required: false, options: ["bulletin", "bulletin-a", "bulletin-b", "victims", "victims-a", "victims-b", "archive", "archive-a", "archive-b"]}]}] }
+              - { label: "FAQ", name: "faq", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", default: "Good to know"}, {label: "Questions", name: "items", widget: "list", summary: "{{question}}", fields: [{label: "Question", name: "question", widget: "string"}, {label: "Answer", name: "answer", widget: "text"}]}] }
+              - { label: "News List", name: "news_list", widget: "object", fields: [{label: "Entries", name: "items", widget: "list", summary: "{{headline}}", fields: [{label: "Date", name: "date", widget: "string", required: false}, {label: "Headline", name: "headline", widget: "string"}, {label: "Body", name: "body", widget: "text"}]}] }
+              - { label: "Newsletter sign-up", name: "newsletter", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", default: "Stay in the loop"}, {label: "Small print", name: "subtext", widget: "string", required: false}, {label: "Background colour", name: "background", widget: "select", options: ["accent", "bulletin", "bulletin-a", "victims", "victims-a", "archive", "archive-a"]}] }
+
+      # ---------------------------------------------------------------
+      # ARCHIVE, ABOUT, TEAM, PRESS, SUPPORT, NEWS — same block palette.
+      # (Repeated per page rather than shared, because Decap needs each
+      # collection's fields fully spelled out — this is verbose but the
+      # most reliable way to keep every page's "+ Add block" list working.)
+      # ---------------------------------------------------------------
+      - name: "archive"
+        label: "Archive"
+        file: "content-archive.json"
+        fields:
+          - label: "Blocks"
+            name: "blocks"
+            widget: "list"
+            summary: "{{fields.type}} — {{fields.heading}}{{fields.title}}"
+            types:
+              - { label: "Hero (top banner)", name: "hero", widget: "object", fields: [{label: "Title", name: "title", widget: "string"}, {label: "Subtitle line", name: "meta", widget: "string", required: false}, {label: "Background photo", name: "image", widget: "image", required: false}, {label: "Darken photo for white text", name: "dark", widget: "boolean", default: true}] }
+              - { label: "Text + Image", name: "text_image", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Body text", name: "body", widget: "text"}, {label: "Photo", name: "image", widget: "image", required: false}, {label: "Photo side", name: "position", widget: "select", options: ["left", "right"], default: "right"}, {label: "Background colour", name: "background", widget: "select", required: false, options: ["", "paper", "white", "bulletin", "bulletin-a", "bulletin-b", "victims", "victims-a", "victims-b", "archive", "archive-a", "archive-b", "accent"]}, {label: "Link text", name: "link_text", widget: "string", required: false}, {label: "Link URL", name: "link_url", widget: "string", required: false}] }
+              - { label: "Statement", name: "statement", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Quote", name: "quote", widget: "text"}, {label: "Attribution", name: "attribution", widget: "string", required: false}, {label: "Background colour", name: "background", widget: "select", options: ["paper", "bulletin", "bulletin-a", "bulletin-b", "victims", "victims-a", "victims-b", "archive", "archive-a", "archive-b", "accent"]}] }
+              - { label: "Text (no image)", name: "text", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Body text", name: "body", widget: "text"}, {label: "Width", name: "width", widget: "select", options: ["narrow", "wide"], default: "narrow"}, {label: "Background colour", name: "background", widget: "select", required: false, options: ["", "paper", "white"]}] }
+              - { label: "Gallery", name: "gallery", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Photos", name: "items", widget: "list", summary: "{{caption}}", fields: [{label: "Photo", name: "image", widget: "image"}, {label: "Caption", name: "caption", widget: "string", required: false}]}] }
+              - { label: "Credits (who's involved)", name: "credits", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", default: "Who's involved"}, {label: "People", name: "items", widget: "list", summary: "{{role}} — {{name}}", fields: [{label: "Role", name: "role", widget: "string"}, {label: "Name", name: "name", widget: "string"}, {label: "Swatch colour", name: "color", widget: "select", required: false, options: ["bulletin", "bulletin-a", "bulletin-b", "victims", "victims-a", "victims-b", "archive", "archive-a", "archive-b"]}]}] }
+              - { label: "FAQ", name: "faq", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", default: "Good to know"}, {label: "Questions", name: "items", widget: "list", summary: "{{question}}", fields: [{label: "Question", name: "question", widget: "string"}, {label: "Answer", name: "answer", widget: "text"}]}] }
+              - { label: "News List", name: "news_list", widget: "object", fields: [{label: "Entries", name: "items", widget: "list", summary: "{{headline}}", fields: [{label: "Date", name: "date", widget: "string", required: false}, {label: "Headline", name: "headline", widget: "string"}, {label: "Body", name: "body", widget: "text"}]}] }
+              - { label: "Newsletter sign-up", name: "newsletter", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", default: "Stay in the loop"}, {label: "Small print", name: "subtext", widget: "string", required: false}, {label: "Background colour", name: "background", widget: "select", options: ["accent", "bulletin", "bulletin-a", "victims", "victims-a", "archive", "archive-a"]}] }
+
+      - name: "about"
+        label: "About"
+        file: "content-about.json"
+        fields:
+          - label: "Blocks"
+            name: "blocks"
+            widget: "list"
+            summary: "{{fields.type}} — {{fields.heading}}{{fields.title}}"
+            types:
+              - { label: "Hero (top banner)", name: "hero", widget: "object", fields: [{label: "Title", name: "title", widget: "string"}, {label: "Subtitle line", name: "meta", widget: "string", required: false}, {label: "Background photo", name: "image", widget: "image", required: false}, {label: "Darken photo for white text", name: "dark", widget: "boolean", default: true}] }
+              - { label: "Text + Image", name: "text_image", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Body text", name: "body", widget: "text"}, {label: "Photo", name: "image", widget: "image", required: false}, {label: "Photo side", name: "position", widget: "select", options: ["left", "right"], default: "right"}, {label: "Background colour", name: "background", widget: "select", required: false, options: ["", "paper", "white", "bulletin", "bulletin-a", "bulletin-b", "victims", "victims-a", "victims-b", "archive", "archive-a", "archive-b", "accent"]}, {label: "Link text", name: "link_text", widget: "string", required: false}, {label: "Link URL", name: "link_url", widget: "string", required: false}] }
+              - { label: "Statement", name: "statement", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Quote", name: "quote", widget: "text"}, {label: "Attribution", name: "attribution", widget: "string", required: false}, {label: "Background colour", name: "background", widget: "select", options: ["paper", "bulletin", "bulletin-a", "bulletin-b", "victims", "victims-a", "victims-b", "archive", "archive-a", "archive-b", "accent"]}] }
+              - { label: "Text (no image)", name: "text", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Body text", name: "body", widget: "text"}, {label: "Width", name: "width", widget: "select", options: ["narrow", "wide"], default: "narrow"}, {label: "Background colour", name: "background", widget: "select", required: false, options: ["", "paper", "white"]}] }
+              - { label: "Gallery", name: "gallery", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Photos", name: "items", widget: "list", summary: "{{caption}}", fields: [{label: "Photo", name: "image", widget: "image"}, {label: "Caption", name: "caption", widget: "string", required: false}]}] }
+              - { label: "Credits (who's involved)", name: "credits", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", default: "Who's involved"}, {label: "People", name: "items", widget: "list", summary: "{{role}} — {{name}}", fields: [{label: "Role", name: "role", widget: "string"}, {label: "Name", name: "name", widget: "string"}, {label: "Swatch colour", name: "color", widget: "select", required: false, options: ["bulletin", "bulletin-a", "bulletin-b", "victims", "victims-a", "victims-b", "archive", "archive-a", "archive-b"]}]}] }
+              - { label: "FAQ", name: "faq", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", default: "Good to know"}, {label: "Questions", name: "items", widget: "list", summary: "{{question}}", fields: [{label: "Question", name: "question", widget: "string"}, {label: "Answer", name: "answer", widget: "text"}]}] }
+              - { label: "News List", name: "news_list", widget: "object", fields: [{label: "Entries", name: "items", widget: "list", summary: "{{headline}}", fields: [{label: "Date", name: "date", widget: "string", required: false}, {label: "Headline", name: "headline", widget: "string"}, {label: "Body", name: "body", widget: "text"}]}] }
+              - { label: "Newsletter sign-up", name: "newsletter", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", default: "Stay in the loop"}, {label: "Small print", name: "subtext", widget: "string", required: false}, {label: "Background colour", name: "background", widget: "select", options: ["accent", "bulletin", "bulletin-a", "victims", "victims-a", "archive", "archive-a"]}] }
+
+      - name: "team"
+        label: "Team"
+        file: "content-team-page.json"
+        fields:
+          - label: "Blocks"
+            name: "blocks"
+            widget: "list"
+            summary: "{{fields.type}} — {{fields.heading}}{{fields.title}}"
+            types:
+              - { label: "Hero (top banner)", name: "hero", widget: "object", fields: [{label: "Title", name: "title", widget: "string"}, {label: "Subtitle line", name: "meta", widget: "string", required: false}, {label: "Background photo", name: "image", widget: "image", required: false}, {label: "Darken photo for white text", name: "dark", widget: "boolean", default: true}] }
+              - { label: "Text + Image", name: "text_image", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Body text", name: "body", widget: "text"}, {label: "Photo", name: "image", widget: "image", required: false}, {label: "Photo side", name: "position", widget: "select", options: ["left", "right"], default: "right"}, {label: "Background colour", name: "background", widget: "select", required: false, options: ["", "paper", "white", "bulletin", "bulletin-a", "bulletin-b", "victims", "victims-a", "victims-b", "archive", "archive-a", "archive-b", "accent"]}, {label: "Link text", name: "link_text", widget: "string", required: false}, {label: "Link URL", name: "link_url", widget: "string", required: false}] }
+              - { label: "Statement", name: "statement", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Quote", name: "quote", widget: "text"}, {label: "Attribution", name: "attribution", widget: "string", required: false}, {label: "Background colour", name: "background", widget: "select", options: ["paper", "bulletin", "bulletin-a", "bulletin-b", "victims", "victims-a", "victims-b", "archive", "archive-a", "archive-b", "accent"]}] }
+              - { label: "Text (no image)", name: "text", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Body text", name: "body", widget: "text"}, {label: "Width", name: "width", widget: "select", options: ["narrow", "wide"], default: "narrow"}, {label: "Background colour", name: "background", widget: "select", required: false, options: ["", "paper", "white"]}] }
+              - { label: "Credits (people list)", name: "credits", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", default: "Who's involved"}, {label: "People", name: "items", widget: "list", summary: "{{role}} — {{name}}", fields: [{label: "Role", name: "role", widget: "string"}, {label: "Name", name: "name", widget: "string"}, {label: "Swatch colour", name: "color", widget: "select", required: false, options: ["bulletin", "bulletin-a", "bulletin-b", "victims", "victims-a", "victims-b", "archive", "archive-a", "archive-b"]}]}] }
+              - { label: "Newsletter sign-up", name: "newsletter", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", default: "Stay in the loop"}, {label: "Small print", name: "subtext", widget: "string", required: false}, {label: "Background colour", name: "background", widget: "select", options: ["accent", "bulletin", "bulletin-a", "victims", "victims-a", "archive", "archive-a"]}] }
+
+      - name: "press"
+        label: "Press"
+        file: "content-press.json"
+        fields:
+          - label: "Blocks"
+            name: "blocks"
+            widget: "list"
+            summary: "{{fields.type}} — {{fields.heading}}{{fields.title}}"
+            types:
+              - { label: "Hero (top banner)", name: "hero", widget: "object", fields: [{label: "Title", name: "title", widget: "string"}, {label: "Subtitle line", name: "meta", widget: "string", required: false}, {label: "Background photo", name: "image", widget: "image", required: false}, {label: "Darken photo for white text", name: "dark", widget: "boolean", default: true}] }
+              - { label: "Text (no image)", name: "text", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Body text", name: "body", widget: "text"}, {label: "Width", name: "width", widget: "select", options: ["narrow", "wide"], default: "narrow"}, {label: "Background colour", name: "background", widget: "select", required: false, options: ["", "paper", "white"]}] }
+              - { label: "Statement (for pull-quotes)", name: "statement", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Quote", name: "quote", widget: "text"}, {label: "Attribution (publication name)", name: "attribution", widget: "string", required: false}, {label: "Background colour", name: "background", widget: "select", options: ["paper", "bulletin", "victims", "archive", "accent"]}] }
+              - { label: "Newsletter sign-up", name: "newsletter", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", default: "Stay in the loop"}, {label: "Small print", name: "subtext", widget: "string", required: false}, {label: "Background colour", name: "background", widget: "select", options: ["accent", "bulletin", "victims", "archive"]}] }
+
+      - name: "support"
+        label: "Support us"
+        file: "content-support.json"
+        fields:
+          - label: "Blocks"
+            name: "blocks"
+            widget: "list"
+            summary: "{{fields.type}} — {{fields.heading}}{{fields.title}}"
+            types:
+              - { label: "Hero (top banner)", name: "hero", widget: "object", fields: [{label: "Title", name: "title", widget: "string"}, {label: "Subtitle line", name: "meta", widget: "string", required: false}, {label: "Background photo", name: "image", widget: "image", required: false}, {label: "Darken photo for white text", name: "dark", widget: "boolean", default: true}] }
+              - { label: "Text (no image)", name: "text", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Body text", name: "body", widget: "text"}, {label: "Width", name: "width", widget: "select", options: ["narrow", "wide"], default: "narrow"}, {label: "Background colour", name: "background", widget: "select", required: false, options: ["", "paper", "white"]}] }
+              - { label: "Text + Image", name: "text_image", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", required: false}, {label: "Body text", name: "body", widget: "text"}, {label: "Photo", name: "image", widget: "image", required: false}, {label: "Photo side", name: "position", widget: "select", options: ["left", "right"], default: "right"}, {label: "Background colour", name: "background", widget: "select", required: false, options: ["", "paper", "white", "accent"]}, {label: "Link text", name: "link_text", widget: "string", required: false}, {label: "Link URL", name: "link_url", widget: "string", required: false}] }
+              - { label: "Newsletter sign-up", name: "newsletter", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", default: "Stay in the loop"}, {label: "Small print", name: "subtext", widget: "string", required: false}, {label: "Background colour", name: "background", widget: "select", options: ["accent", "bulletin", "victims", "archive"]}] }
+
+      - name: "news"
+        label: "News"
+        file: "content-news.json"
+        fields:
+          - label: "Blocks"
+            name: "blocks"
+            widget: "list"
+            summary: "{{fields.type}} — {{fields.heading}}{{fields.title}}"
+            types:
+              - { label: "Hero (top banner)", name: "hero", widget: "object", fields: [{label: "Title", name: "title", widget: "string"}, {label: "Subtitle line", name: "meta", widget: "string", required: false}, {label: "Background photo", name: "image", widget: "image", required: false}, {label: "Darken photo for white text", name: "dark", widget: "boolean", default: true}] }
+              - { label: "News List", name: "news_list", widget: "object", fields: [{label: "Entries", name: "items", widget: "list", summary: "{{headline}}", fields: [{label: "Date", name: "date", widget: "string", required: false}, {label: "Headline", name: "headline", widget: "string"}, {label: "Body", name: "body", widget: "text"}]}] }
+              - { label: "Newsletter sign-up", name: "newsletter", widget: "object", fields: [{label: "Heading", name: "heading", widget: "string", default: "Stay in the loop"}, {label: "Small print", name: "subtext", widget: "string", required: false}, {label: "Background colour", name: "background", widget: "select", options: ["accent", "bulletin", "victims", "archive"]}] }
+
+      # ---------------------------------------------------------------
+      # HOMEPAGE — fixed 3-tile layout, not a block list (this is a
+      # genuinely one-of-a-kind layout, so its own simple fields instead)
+      # ---------------------------------------------------------------
+      - name: "homepage"
+        label: "Homepage tiles"
+        file: "content.json"
+        fields:
+          - label: "Bulletin tile"
+            name: "tile_bulletin"
+            widget: "object"
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Caption line 1", name: "caption1", widget: "string" }
+              - { label: "Caption line 2", name: "caption2", widget: "string" }
+          - label: "Victims tile"
+            name: "tile_victims"
+            widget: "object"
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Caption line 1", name: "caption1", widget: "string" }
+              - { label: "Caption line 2", name: "caption2", widget: "string" }
+          - label: "Archive tile"
+            name: "tile_archive"
+            widget: "object"
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Caption line 1", name: "caption1", widget: "string" }
+              - { label: "Caption line 2", name: "caption2", widget: "string" }
+
+      # ---------------------------------------------------------------
+      # SITE-WIDE SETTINGS — footer contact details & social links,
+      # shown on every page
+      # ---------------------------------------------------------------
+      - name: "settings"
+        label: "Site-wide settings"
+        file: "content-settings.json"
+        fields:
+          - { label: "Contact email", name: "email", widget: "string" }
+          - { label: "Address (leave blank if not ready to publish one)", name: "address", widget: "string", required: false }
+          - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+          - { label: "Other social links", name: "social", widget: "list", required: false, fields: [{label: "Label", name: "label", widget: "string"}, {label: "URL", name: "url", widget: "string"}] }
