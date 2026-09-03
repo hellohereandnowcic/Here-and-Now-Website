@@ -1,0 +1,22 @@
+{
+  "shows": [
+    {
+      "id": "the-bulletin",
+      "title": "The Bulletin",
+      "status": "Cabaret night — in development",
+      "body": "[PLACEHOLDER] The Bulletin is a new cabaret night we're building — an evening of music, comedy and variety, performed up close, the way we like it. Details, dates and venue to follow."
+    },
+    {
+      "id": "v-is-for-victims",
+      "title": "V is for Victims",
+      "status": "New work — in development",
+      "body": "[PLACEHOLDER] V is for Victims is a new piece we're developing. More details to come — check back soon, or sign up below to hear first."
+    },
+    {
+      "id": "peckham-public-theatre",
+      "title": "The Peckham Public Theatre",
+      "status": "Co-produced with Peckham Festival",
+      "body": "[PLACEHOLDER] The Peckham Public Theatre is a new venture we're co-producing with Peckham Festival. More details, dates and how to get involved coming soon."
+    }
+  ]
+}
