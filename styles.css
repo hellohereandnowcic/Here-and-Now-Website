@@ -181,7 +181,7 @@ body.exiting .transition-glyph span { animation: glyphScale 0.35s ease forwards;
 .brandmark .amp {
   font-family: 'Orbitron', monospace; font-weight: 900; color: var(--accent);
   font-size: 1.15em; transform: scaleX(1.05); display: inline-block;
-  margin-right: 0.12em;
+  margin-right: 0.3em;
 }
 
 .nav-join {
@@ -429,7 +429,8 @@ body.menu-open { overflow: hidden; }
 .footer-col h3 { margin: 0 0 14px; }
 .footer-col h3 label {
   font-family: 'Chivo Mono', monospace; font-weight: 900; font-size: 13px; text-transform: uppercase;
-  letter-spacing: 0.05em; cursor: pointer; transform: scaleX(0.85); display: inline-block;
+  letter-spacing: 0.05em; cursor: pointer; transform: scaleX(0.85); transform-origin: left center;
+  display: inline-block;
 }
 .footer-col input[type="checkbox"] { display: none; }
 .footer-col .content { display: flex; flex-direction: column; gap: 8px; }
