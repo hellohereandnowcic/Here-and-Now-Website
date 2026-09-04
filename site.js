@@ -249,7 +249,7 @@ function renderText(b) {
   var bg = resolveColor(b.background) || 'var(--paper)';
   var maxWidth = b.width === 'wide' ? 'none' : '800px';
   return '' +
-    '<section class="section--paper reveal" style="background:' + bg + ';padding:50px 0;">' +
+    '<section class="section section--paper reveal" style="background:' + bg + ';padding:50px 0;">' +
       '<div class="wrap" style="max-width:' + maxWidth + ';display:block;text-align:left;">' +
         (b.heading ? '<h2>' + escapeHtml(b.heading) + '</h2>' : '') +
         paragraphs(b.body).replace(/<p>/g, '<p style="max-width:none;">') +
@@ -260,7 +260,7 @@ function renderText(b) {
 function renderGallery(b) {
   var items = Array.isArray(b.items) ? b.items : [];
   return '' +
-    '<section class="section--paper reveal" style="padding:50px 0;">' +
+    '<section class="section section--paper reveal" style="padding:50px 0;">' +
       (b.heading ? '<div class="wrap" style="max-width:1300px;display:block;"><h2>' + escapeHtml(b.heading) + '</h2></div>' : '') +
       '<div class="gallery-grid" style="margin-top:2rem;">' +
         items.map(function (it) {

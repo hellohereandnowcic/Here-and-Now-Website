@@ -181,12 +181,26 @@ body.exiting .transition-glyph span { animation: glyphScale 0.35s ease forwards;
 .brandmark .amp {
   font-family: 'Orbitron', monospace; font-weight: 900; color: var(--accent);
   font-size: 1.15em; transform: scaleX(1.05); display: inline-block;
+  margin-right: 0.12em;
 }
 
 .nav-join {
   position: absolute; right: 25px; top: 13px; z-index: 210; transition: transform 0.4s ease;
 }
 .nav.scrolled .nav-join { transform: translateY(-6px); }
+
+@media (max-width: 600px) {
+  /* nav-tickets, brandmark, and nav-join are three separately absolutely-
+     positioned elements at fixed pixel offsets — fine on desktop, but on a
+     ~375px phone their widths overlap (Tickets button runs into the logo,
+     which sits close to Join). Shrink and tighten all three so they clear
+     each other instead of colliding. */
+  .nav-tickets { left: 84px; }
+  .nav-join { right: 12px; }
+  .nav-tickets.btn, .nav-join.btn { padding: 0 12px; font-size: 11px; }
+  .brandmark { top: 22px; }
+  .brandmark .line { font-size: 17px; }
+}
 
 /* ---------- full-screen menu overlay ---------- */
 .menu-overlay {
@@ -240,6 +254,14 @@ body.menu-open { overflow: hidden; }
 .hero .meta {
   margin-top: 16px; font-family: 'Chivo Mono', monospace; font-weight: 700; font-size: 13px;
   letter-spacing: 0.05em; transform: scaleX(0.8); transform-origin: left center; display: inline-block;
+}
+@media (max-width: 700px) {
+  /* the 86.4px floor above is a real value copied from the desktop reference,
+     but it doesn't scale down for phones — below 700px the vw term is always
+     smaller than that floor, so titles were pinned at 86.4px and overflowing
+     the screen. Give phones their own, much lower floor instead. */
+  .hero .title { font-size: clamp(2.6rem, 13vw, 86.4px); }
+  .hero__content { padding: 1.5rem; }
 }
 
 /* ---------- scroll reveal ---------- */
